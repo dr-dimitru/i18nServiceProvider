@@ -1,0 +1,22 @@
+{
+	"ru":{ 
+		"code": "ru",
+		"isoCode": "ru_RU",
+		"name": "Русский",
+		"route": "i18n/ru/"
+	},
+
+	"en":{
+		"code": "en",
+		"isoCode": "en_US",
+		"name": "English",
+		"route": "i18n/en/"
+	},
+
+	"de":{
+		"code": "de",
+		"isoCode": "de_de",
+		"name": "Deuchland",
+		"route": "i18n/de/"
+	}
+}

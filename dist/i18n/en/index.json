@@ -1,0 +1,46 @@
+{
+	"header": "Angular i18n & l10n Service Provider",
+	"description": "i18nServiceProvider is injectable service into your angular module. i18nServiceProvider allows to keep i18n files separately folder by folder in strict logic. All propertioes avaliable via l10n property in current scope, additional methods is avaliable via i18n property in current scope. <code>get()</code> method includes variable replacements and js parcer if js-code is detected. Values avaliable via next syntaxis as variable: <code>l10n.fileName.propertyName.propertyName2.propertyName3...</code> or via get() method as a string: <code>i18n.get('fileName.propertyName.propertyName2.propertyName3..', [])</code>. Please see examples for more info.",
+	"examples": {
+		"howToUse": "Link <code><script src=\"scripts/services/i18n.js\"></script></code> after link of angular and it's modules.<br>Inject <code>i18nServiceProvider</code> into module initialization array.<br>Pass i18nService as parameter in top app's controller and call: <code>i18nService.init($scope, ['file1', 'file2'], 'zh');",
+		"pageTemplate": "",
+		"plainText": "Some plain text which may be returned via two-way binded variable or get() method",
+		"variables": "Hello my name is {{ user.name }}, I'm from {{ user.city }}, {{ user.country }}. I'm {{ user.profession }} at {{ user.companyName }}"
+	},
+	"methods":{
+		"init": {
+			"header": "init($scope, [], 'locale')",
+			"description": "Initialize Service by passing current <code>$scope</code> variable, array of files <code>['file1', 'file2', 'file3']</code>, and default applicaion locale as a string.",
+			"codeExample": "<div>{{ l10n.index.examples.plainText }}</div>"
+		}
+	},
+	"functionality": {
+		"variable": {
+			"header": "Via current scope variable",
+			"description": "Get l10n value via variable stored in $scope.l10n[fileName][propertyName] from your current scope",
+			"codeExample": "<div>{{ l10n.index.examples.plainText }}</div>",
+			"liveExample": "index.examples.plainText"
+		},
+		"getMethod": {
+			"header": "Via get(string) method",
+			"description": "Get l10n value via variable stored in $scope.l10n[fileName][propertyName] from your current scope",
+			"codeExample": "<div>{{ l10n.index.examples.plainText }}</div>",
+			"liveExample": "index.examples.plainText"
+		},
+		"ngBind": {
+			"header": "Via ng-bind[ing] attribute",
+			"description": "Get l10n value via ng-bind in current scope",
+			"codeExample": "<div ng-bind=\"l10n.index.examples.plainText\"></div>"
+		},
+		"getWithArray": {
+			"header": "Replace with variables as array via get(string, []) method",
+			"description": "Get l10n value via ng-bind in current scope",
+			"codeExample": "{{ i18n.get('l10n.index.examples.variables', [user.name, user.city, user.country, user.company.profession, user.company.name]) }}",
+			"liveExample": "index.examples.variables",
+			"bindingArray": ["user.name", "user.city", "user.country", "user.profession", "user.companyName"]
+		}
+	},
+	"plural":{
+		"twoWayBinding": "This method also supports two-way binding:"
+	}
+}

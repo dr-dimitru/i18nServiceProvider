@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" 
+      ng-app="myMulitilingualApp" 
+      ng-controller="mainController">
+  <head>
+    <meta charset="utf-8">
+    <title>Multilingual application with angular i18nServiceProvider</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" ng-repeat="example in l10n.index.functionality">
+        <div class="col-md-12">
+          <h4 ng-bind="example.header"></h4>
+          <p ng-bind="example.description"></p>
+          
+<pre><strong>Code example:</strong> <code ng-bind="example.codeExample"></code></pre>
+<pre ng-hide="!example.liveExample || example.bindingArray"><strong>Live example:</strong> <code>{{ i18n.get(example.liveExample) }}</code></pre>
+<pre ng-show="example.bindingArray"><strong>Two-way binding example:</strong> <code>{{ user }}</code></pre>
+
+          <div class="form-inline" ng-if="example.bindingArray">
+            <h5 ng-bind="l10n.index.plural.twoWayBinding"></h5>
+            <span ng-repeat="input in example.bindingArray">
+              <input type="text" class="form-control" ng-model="user[input.split('.')[1]]" placeholder="{{ input }}">
+            </span>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="scripts/vendor/angular.min.js"></script>
+    <script src="scripts/vendor/json3/json3.min.js"></script>
+    <script src="scripts/vendor/angular-resource.min.js"></script>
+    <script src="scripts/vendor/angular-cookies.min.js"></script>
+    <script src="scripts/vendor/angular-route.min.js"></script>
+
+    <script src="scripts/services/i18n.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
