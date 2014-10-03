@@ -13,7 +13,7 @@ angular.module('myMulitilingualApp',
   [
     'ngCookies',
     'ngResource',
-    'i18nServiceProvider' /* HERE IS OUR i18n SERVICE PROVIDER IS ENJECTED*/
+    'i18nServiceProvider' /* HERE IS OUR i18n SERVICE PROVIDER IS INJECTED*/
   ])
 
 .controller('mainController', function (i18nService, $scope){
